@@ -3,9 +3,11 @@ const { graphqlHTTP } = require("express-graphql");
 const cors = require("cors");
 const schema = require("./schema");
 const connectMongoDb = require("./connectToDb");
+const fetchProducts = require("./shopifyFetch");
 
 const app = express();
 connectMongoDb();
+//fetchProducts();
 
 app.use(cors());
 
