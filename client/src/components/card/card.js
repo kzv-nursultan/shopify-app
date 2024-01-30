@@ -14,12 +14,16 @@ export const Card = ({ title, description, featuredImage, _id }) => {
   }, [featuredImage.url, _id]);
 
   return (
-    <div className="card">
-      <canvas id={_id} width="290px" height="300px" />
-      <div className="info">
-        <h1>{title}</h1>
-        <p>{description}</p>
+    <section className="card">
+      <div>
+        <aside>
+          <canvas id={_id} width="290px" height="300px" />
+        </aside>
+        <div className="info">
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
