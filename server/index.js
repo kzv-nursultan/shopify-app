@@ -2,8 +2,10 @@ const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const cors = require("cors");
 const schema = require("./schema");
+const connectMongoDb = require("./connectToDb");
 
 const app = express();
+connectMongoDb();
 
 app.use(cors());
 
