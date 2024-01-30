@@ -1,0 +1,3 @@
+const ADD_PRODUCTS = "ADD_PRODUCTS";
+
+export { ADD_PRODUCTS };
