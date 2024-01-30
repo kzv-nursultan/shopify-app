@@ -1,7 +1,12 @@
 import React from "react";
+import { ProductList } from "./containers";
 
 function App() {
-  return <>client</>;
+  return (
+    <>
+      <ProductList />
+    </>
+  );
 }
 
 export default App;
