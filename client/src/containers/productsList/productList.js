@@ -9,7 +9,6 @@ const ProductList = () => {
   const fetchProducts = async () => {
     try {
       const { data } = await axiosInst.get("/products");
-      //console.log(data);
       setState(data);
     } catch (e) {
       console.error(e);
@@ -23,7 +22,7 @@ const ProductList = () => {
   return (
     <div className="container">
       {state.map((product) => (
-        <Card key={product._id} {...product.node} />
+        <Card key={product._id} {...product.node} _id={product._id} />
       ))}
     </div>
   );

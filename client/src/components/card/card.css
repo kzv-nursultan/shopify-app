@@ -4,9 +4,11 @@
   margin: auto;
   text-align: center;
   font-family: arial;
+  border-radius: 12px;
 }
 
-.price {
-  color: grey;
-  font-size: 22px;
+.card p {
+  height: 350px;
+  overflow: hidden;
+  padding: 10px;
 }
