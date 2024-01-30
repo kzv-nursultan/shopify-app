@@ -15,14 +15,12 @@ export const Card = ({ title, description, featuredImage, _id }) => {
 
   return (
     <section className="card">
-      <div>
-        <aside>
-          <canvas id={_id} width="290px" height="300px" />
-        </aside>
-        <div className="info">
-          <h1>{title}</h1>
-          <p>{description}</p>
-        </div>
+      <figure>
+        <canvas id={_id} width="290px" height="300px" />
+      </figure>
+      <div className="info">
+        <h1>{title}</h1>
+        <p>{description}</p>
       </div>
     </section>
   );

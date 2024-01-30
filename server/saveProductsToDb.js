@@ -6,7 +6,7 @@ const CONFIG = require("./config");
 
 const query = `
   {
-    products (first: 2) {
+    products (first: 100) {
       edges {
         node {
           id,
