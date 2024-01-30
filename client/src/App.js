@@ -1,5 +1,7 @@
+import React from "react";
+
 function App() {
-  return <></>;
+  return <>client</>;
 }
 
 export default App;
