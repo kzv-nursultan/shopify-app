@@ -1,22 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./card.css";
 
+const drawImage = (_id, url, width) => {
+  const canvas = document.getElementById(_id);
+  const ctx = canvas.getContext("2d");
+  const image = new Image();
+  image.src = url;
+  image.onload = imageLoaded;
+  function imageLoaded() {
+    ctx.clearRect(0, 0, 290, 300);
+    ctx.drawImage(image, 0, 0, width, image.height * (300 / image.width));
+  }
+};
+
 export const Card = ({ title, description, featuredImage, _id }) => {
+  const ref = useRef();
+  const [width, setWidth] = useState(290);
+
+  const setImgWidth = () => {
+    setWidth(ref?.current?.offsetWidth - 30);
+  };
+
   useEffect(() => {
-    const canvas = document.getElementById(_id);
-    const ctx = canvas.getContext("2d");
-    const image = new Image();
-    image.src = featuredImage.url;
-    image.onload = imageLoaded;
-    function imageLoaded() {
-      ctx.drawImage(image, 0, 0, 290, image.height * (300 / image.width));
-    }
-  }, [featuredImage.url, _id]);
+    setWidth(ref?.current?.offsetWidth - 30);
+    window.addEventListener("resize", setImgWidth);
+    return () => {
+      window.removeEventListener("resize", setImgWidth);
+    };
+  }, []);
+
+  useEffect(() => {
+    drawImage(_id, featuredImage.url, width);
+  }, [featuredImage.url, _id, width]);
 
   return (
-    <section className="card">
-      <figure>
-        <canvas id={_id} width="290px" height="300px" />
+    <section className="card" id={`card-${_id}`}>
+      <figure ref={ref}>
+        <canvas id={_id} width="290" height="300px" ref={ref} />
       </figure>
       <div className="info">
         <h1>{title}</h1>
