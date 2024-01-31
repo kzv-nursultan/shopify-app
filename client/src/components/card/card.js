@@ -14,15 +14,15 @@ const drawImage = (_id, url, width) => {
 };
 
 export const Card = ({ title, description, featuredImage, _id }) => {
-  const ref = useRef();
+  const figureRef = useRef();
   const [width, setWidth] = useState(290);
 
   const setImgWidth = () => {
-    setWidth(ref?.current?.offsetWidth - 30);
+    setWidth(figureRef?.current?.offsetWidth - 30);
   };
 
   useEffect(() => {
-    setWidth(ref?.current?.offsetWidth - 30);
+    setWidth(figureRef?.current?.offsetWidth - 30);
     window.addEventListener("resize", setImgWidth);
     return () => {
       window.removeEventListener("resize", setImgWidth);
@@ -34,9 +34,9 @@ export const Card = ({ title, description, featuredImage, _id }) => {
   }, [featuredImage.url, _id, width]);
 
   return (
-    <section className="card" id={`card-${_id}`}>
-      <figure ref={ref}>
-        <canvas id={_id} width="290" height="300px" ref={ref} />
+    <section className="card">
+      <figure ref={figureRef}>
+        <canvas id={_id} width="290" height="300px" />
       </figure>
       <div className="info">
         <h1>{title}</h1>
