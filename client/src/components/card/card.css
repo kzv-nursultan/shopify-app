@@ -8,6 +8,7 @@
   font-family: arial;
   border-radius: 12px;
   margin: 15px;
+  overflow: hidden;
 }
 
 .card figure {
@@ -16,10 +17,19 @@
 
 .info {
   margin: 0;
+  margin: 10px;
   height: 250px;
-  padding: 10px;
   box-sizing: border-box;
   overflow: hidden;
+  flex-direction: column;
+}
+
+h1 {
+  margin-top: 0;
+  min-height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .info p {

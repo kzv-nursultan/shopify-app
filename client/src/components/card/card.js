@@ -8,7 +8,7 @@ const drawImage = (_id, url, width) => {
   image.src = url;
   image.onload = imageLoaded;
   function imageLoaded() {
-    ctx.clearRect(0, 0, 290, 300);
+    ctx.clearRect(0, 0, width, 300);
     ctx.drawImage(image, 0, 0, width, image.height * (300 / image.width));
   }
 };
@@ -36,7 +36,7 @@ export const Card = ({ title, description, featuredImage, _id }) => {
   return (
     <section className="card">
       <figure ref={figureRef}>
-        <canvas id={_id} width="290" height="300px" />
+        <canvas id={_id} width={width} height="300px" />
       </figure>
       <div className="info">
         <h1>{title}</h1>
